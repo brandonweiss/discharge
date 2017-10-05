@@ -2,6 +2,8 @@
 
 > A simple, easy way to deploy static websites to Amazon S3
 
+![screenshot](./assets/screenshot.gif)
+
 ## Features
 
 * Very little understanding of AWS required
