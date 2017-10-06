@@ -47,7 +47,7 @@ Configuration is done via a `.discharge.json` file located at the root of your a
 
 ```json
 {
-  "domain": "anti-pattern-test-4.com",
+  "domain": "anti-pattern.com",
   "build_command": "bundle exec middleman build",
   "upload_directory": "build",
   "index_key": "index.html",
