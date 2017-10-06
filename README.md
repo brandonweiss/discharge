@@ -171,7 +171,7 @@ The [Amazon S3 region][s3-region] you want to create your website (bucket) in.
 
 **dns_configured** `Boolean`
 
-If you run `discharge init` this will be set to `false` automatically. Then when you run `discharge deploy` it will show the CNAME record you need to add to your DNS configuration. The deploy command will then automatically set this value to `true`, assuming you have properly created the CNAME record.
+If you run `discharge init` this will be set to `false` automatically. Then when you run `discharge deploy` it will show the record you need to add to your DNS configuration. The deploy command will then automatically set this value to `true`, assuming you have properly created the DNS record.
 
 ### Deploy
 
