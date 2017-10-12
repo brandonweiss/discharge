@@ -1,4 +1,4 @@
-# ![discharge](./assets/logo.svg)
+# ![discharge](./assets/logo.svg?sanitize=true)
 
 > A simple, easy way to deploy static websites to Amazon S3
 
