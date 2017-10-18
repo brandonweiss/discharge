@@ -48,6 +48,9 @@ Configuration is done via a `.discharge.json` file located at the root of your a
 ```json
 {
   "domain": "anti-pattern.com",
+  "cloudfront": true,
+  "cloudfront_compress": true,
+  "cloudfront_https": "redirect-to-https",
   "build_command": "bundle exec middleman build",
   "upload_directory": "build",
   "index_key": "index.html",
@@ -69,6 +72,18 @@ There are no defaults—all configuration options are explicit and must be provi
 **domain** `String`
 
 The domain name of your website. This will be used as the name of the S3 bucket your website will be uploaded to.
+
+**cloudfront** `Boolean`
+
+By default, a (CloudFront)[http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html] distribution will be created for your deployment, and will be updated every deploy.
+
+**cloudfront_compress** `Boolean` (optional)
+
+If CloudFront is activated, does the distribution [automatically compresses objects](http://docs.aws.amazon.com/console/cloudfront/compressed-content)?
+
+**cloudfront_https** `String` (optional)
+
+CloudFront Viewer Protocol Policy, defaulting to "Redirect HTTP to HTTPS"
 
 **build_command** `String`
 
@@ -178,6 +193,7 @@ If you run `discharge init` this will be set to `false` automatically. Then when
 After you’ve finished configuring you can run `discharge deploy` to deploy. Deploying is a series of steps that are idempotent—that is, they are safe to run over and over again, and if you haven’t changed anything, then the outcome should always be the same.
 
 If you change your website configuration (`cache`, `redirects`, etc.) it will be updated. If you change your website content, a diff will be done to figure out what needs to change. New files will be added, changed files will be updated, and deleted files will be removed. The synchronization is one way—that is, if you remove a file from S3 it will just be re-uploaded the next time you deploy.
+If a CloudFront distribution is active, an [invalidation](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html) will be created for the changed entries, so your distribution will contain the most up-to-date version.
 
 ## Contributing
 
