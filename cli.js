@@ -11,7 +11,7 @@ const cli = meow(`
 	Usage
 	  $ discharge init
 	  $ discharge deploy
-`);
+`)
 
 updateNotifier({ pkg: cli.pkg }).notify()
 
