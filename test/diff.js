@@ -15,7 +15,7 @@ test("a file is in the source but not the target", (t) => {
     update: [],
     ignore: [],
   })
-});
+})
 
 test("a file is in the target but not the source", (t) => {
   let a = { path: "foo/bar", md5: "abc123" }
@@ -31,7 +31,7 @@ test("a file is in the target but not the source", (t) => {
     update: [],
     ignore: [],
   })
-});
+})
 
 test("a file is in both the target and the source but the hashes are different", (t) => {
   let aSource = { path: "foo/bar", md5: "abc123" }
@@ -48,7 +48,7 @@ test("a file is in both the target and the source but the hashes are different",
     update: [aSource],
     ignore: [],
   })
-});
+})
 
 test("a file is in both the target and the source and the hashes are the same", (t) => {
   let aSource = { path: "foo/bar", md5: "abc123" }
@@ -65,7 +65,7 @@ test("a file is in both the target and the source and the hashes are the same", 
     update: [],
     ignore: [aSource],
   })
-});
+})
 
 test("a combination of files in different states", (t) => {
   let a = { path: "only/in/source" }
@@ -86,4 +86,4 @@ test("a combination of files in different states", (t) => {
     update: [cSource],
     ignore: [dSource],
   })
-});
+})
