@@ -11,7 +11,7 @@
 * Step-by-step list of what’s happening
 * Support for no trailing slashes in URLs
 * Use an AWS Profile (named credentials) to authenticate with AWS
-* CloudFront and HTTPS support (coming soon)
+* CDN (CloudFront) and HTTPS/TLS support
 
 ## Installation
 
@@ -106,11 +106,15 @@ The number of seconds a browser should cache the files of your website for. This
 
 Be careful about setting too high a cache length. If you do, when a browser caches it, if you then update the content, that browser will not get the updated content unless the user specifically hard-refreshes the page.
 
+When `cdn` is enabled, the `s-maxage` directive is included and set to a very high number (one month). It is recommended you set `cache` to a very low number (e.g five minutes). The CDN will use the `s-maxage` directive and the browser will use the `max-age` directive. This works because when you deploy the CDN’s cache will be automatically expired. For more information see the `distribute` command.
+
 If you need finer-grained control over the `Cache-Control` header, use the `cache_control` configuration option.
 
 **cache_control** `String` (optional)
 
 A `Cache-Control` directive as described in the [HTTP documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control). This is for more advanced, finer-grained control of caching. If you don’t need that, use the `cache` configuration option.
+
+The `s-maxage` directive added to `cache` when `cdn` is enabled is not added here—you have to do it yourself. Caveat emptor.
 
 **redirects** `Array<Object>` (optional)
 
@@ -151,6 +155,12 @@ If the `redirects` configuration is not enough, you can declare more complex rou
 
 The unusual property casing is intentional—the entire configuration will be passed directly through in the HTTP request.
 
+**cdn**: `Boolean`
+
+Set this to `true` if you want to use a CDN and HTTPS/TLS. Setting up the CDN does not happen automatically when deploying. After deploying, run `discharge distribute` to set up the CDN. Once the CDN is set up, future deploys will expire the CDN’s cache.
+
+For more information see the `cache` configuration or the `distribute` command.
+
 **aws_profile** `String`
 
 Your AWS credentials should be stored in `~/.aws/credentials`. It should look something like this:
@@ -178,6 +188,33 @@ If you run `discharge init` this will be set to `false` automatically. Then when
 After you’ve finished configuring you can run `discharge deploy` to deploy. Deploying is a series of steps that are idempotent—that is, they are safe to run over and over again, and if you haven’t changed anything, then the outcome should always be the same.
 
 If you change your website configuration (`cache`, `redirects`, etc.) it will be updated. If you change your website content, a diff will be done to figure out what needs to change. New files will be added, changed files will be updated, and deleted files will be removed. The synchronization is one way—that is, if you remove a file from S3 it will just be re-uploaded the next time you deploy.
+
+### Distribute
+
+After you’ve finished deploying you can run `discharge distribute` to distribute your website via a CDN (content delivery network). The command will create a TLS certificate, ensure it’s verified, create a distribution, and ensure it’s deployed. Almost no configuration necessary[1]. This step is completely optional, but if you have a high-traffic website it’s highly recommended, and if you want to secure your website with HTTPS/TLS then you have to do it[2].
+
+A CDN is a caching layer. It can significantly speed up requests for users located geographically farther from where your website is deployed, and sometimes even for users nearby it. In brief, the way a CDN works is you point your DNS to the CDN. When a request comes in, the CDN relays the request to your origin (in this case S3) then takes the response and caches it according to the `Cache-Control` header in the response. Future requests will only hit the CDN and not your origin, until either the CDN’s cache expires or it’s expired early.
+
+The `Cache-Control` header can specify two different cache lengths, one for the CDN and one for the browser. Because static sites are… static, the only times they change are when deployed, so it’s safe to set a very high cache length for the CDN, a low cache length for the browser, and then  expire the CDN’s cache early when deploying.
+
+[1]: CDNs can be configured in a _a lot_ of different, complex ways. The goal was to abstract away all of that—choose sane defaults and require no configuration. I think this will work for the vast majority of people, but if there’s a specific reason you need more flexibility let me know, and if it’s widely-needed we can add it.
+
+[2]: While CDNs can be configured without TLS, given that TLS certificates are free and we want the entire web to be encrypted, I can’t see any reason to support not using TLS.
+
+#### .io domains
+
+Verifying the TLS certificate is done via email. AWS will look up the contact information in the WHOIS database for your domain and then send a verification email to the following email addresses:
+
+* Domain registrant
+* Technical contact
+* Administrative contact
+* administrator@domain.tld
+* hostmaster@domain.tld
+* postmaster@domain.tld
+* webmaster@domain.tld
+* admin@domain.tld
+
+Inexplicably, the .io domain registrar is the only registrar that does not return contact information from the WHOIS database. That means you _have_ to have one of the five common system email addresses set up on a .io domain or you will not receive the TLS certificate verification email.
 
 ## Contributing
 
