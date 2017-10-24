@@ -15,6 +15,7 @@ module.exports = {
   ],
   rules: {
     "comma-dangle": ["error", "always-multiline"],
+    "indent": ["error", 2],
     "no-console": "off" ,
     "no-empty": ["error", { allowEmptyCatch: true }],
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
