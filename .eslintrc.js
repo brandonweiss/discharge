@@ -14,6 +14,7 @@ module.exports = {
     "node"
   ],
   rules: {
+    "arrow-parens": ["error", "always"],
     "comma-dangle": ["error", "always-multiline"],
     "indent": ["error", 2],
     "no-console": "off" ,
