@@ -56,6 +56,7 @@ Configuration is done via a `.discharge.json` file located at the root of your a
   "cache": 3600,
   "aws_profile": "website-deployment",
   "aws_region": "us-west-1",
+  "cdn": true,
   "dns_configured": false
 }
 ```
