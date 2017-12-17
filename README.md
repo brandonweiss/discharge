@@ -10,6 +10,7 @@
 * Interactive UI for configuring deployment
 * Step-by-step list of what’s happening
 * Support for no trailing slashes in URLs
+* Support for subdomains
 * Use an AWS Profile (named credentials) to authenticate with AWS
 * CDN (CloudFront) and HTTPS/TLS support
 
@@ -217,6 +218,18 @@ Verifying the TLS certificate is done via email. AWS will look up the contact in
 
 Inexplicably, the .io domain registrar is the only registrar that does not return contact information from the WHOIS database. That means you _have_ to have one of the five common system email addresses set up on a .io domain or you will not receive the TLS certificate verification email.
 
+### Subdomains
+
+You can use any domain, subdomain, or combination you like. You just need to configure your DNS appropriately.
+
+If you want to use a naked domain (`domain.com`), because S3 and CloudFront expose a special URL rather than an IP address, your DNS provider will need to support ALIAS records; not all do.
+
+If you want to use a subdomain like `www.domain.com` or `blog.domain.com`, create a CNAME record for it. The TLS/HTTPS certificate is created for the root domain and all subdomains via a wildcard.
+
+If you want to use both a naked domain and a subdomain, create an ALIAS and a CNAME record.
+
+If you want to use only a naked domain or a subdomain, but redirect one to the other (like redirect `www.domain.com` to `domain.com`), then the easiest way to do that is to add a redirect at the DNS-level. It’s not technically a part of the DNS specification so not all DNS providers have it, but the vast majority do. If yours does not, you can either switch to a DNS provider that does or [manually create an S3 bucket that does the redirect][s3-redirect] and create an ALIAS or CNAME record pointing to it.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at [https://github.com/brandonweiss/discharge][github-discharge].
@@ -230,5 +243,6 @@ The package is available as open source under the terms of the [MIT License][MIT
 [routing-rules-docs]: http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects
 [JavaScript-docs]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putBucketWebsite-property
 [s3-region]: http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+[s3-redirect]: https://aws.amazon.com/premiumsupport/knowledge-center/redirect-domain-route-53/
 [github-discharge]: https://github.com/brandonweiss/discharge
 [MIT-license]: http://opensource.org/licenses/MIT
