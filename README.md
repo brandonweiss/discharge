@@ -50,6 +50,8 @@ Configuration is done via a `.discharge.json` file located at the root of your a
   "domain": "anti-pattern.com",
   "build_command": "bundle exec middleman build",
   "upload_directory": "build",
+  "redirect_all": false,
+  "redirect_domain": "",
   "index_key": "index.html",
   "error_key": "404.html",
   "trailing_slashes": false,
@@ -70,6 +72,14 @@ There are no defaults—all configuration options are explicit and must be provi
 **domain** `String`
 
 The domain name of your website. This will be used as the name of the S3 bucket your website will be uploaded to.
+
+**redirect_all** `Boolean`
+
+Setup bucket to redirect to different domain.
+
+**redirect_domain** `String`
+
+Domain to target for redirect. Only required if redirect_all is enabled.
 
 **build_command** `String`
 
