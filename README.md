@@ -134,7 +134,7 @@ If you need finer-grained control over the routing rules, use the `routing_rules
 
 **routing_rules** `Array<Object>` (optional)
 
-If the `redirects` configuration is not enough, you can declare more complex routing rules. There are some [horrible AWS docs][routing-rules-docs] that explain the available options and here’s an example of the syntax from the [AWS JavaScript docs][JavaScript-docs]].
+If the `redirects` configuration is not enough, you can declare more complex routing rules. There are some [horrible AWS docs][routing-rules-docs] that explain the available options and here’s an example of the syntax from the [AWS JavaScript docs][JavaScript-docs].
 
 ```javascript
 [
