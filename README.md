@@ -199,7 +199,7 @@ A CDN is a caching layer. It can significantly speed up requests for users locat
 
 The `Cache-Control` header can specify two different cache lengths, one for the CDN and one for the browser. Because static sites are… static, the only times they change are when deployed, so it’s safe to set a very high cache length for the CDN, a low cache length for the browser, and then  expire the CDN’s cache early when deploying.
 
-[1]: CDNs can be configured in a _a lot_ of different, complex ways. The goal was to abstract away all of that—choose sane defaults and require no configuration. I think this will work for the vast majority of people, but if there’s a specific reason you need more flexibility let me know, and if it’s widely-needed we can add it.
+[1]: CDNs can be configured in _a lot_ of different, complex ways. The goal was to abstract away all of that—choose sane defaults and require no configuration. I think this will work for the vast majority of people, but if there’s a specific reason you need more flexibility let me know, and if it’s widely-needed we can add it.
 
 [2]: While CDNs can be configured without TLS, given that TLS certificates are free and we want the entire web to be encrypted, I can’t see any reason to support not using TLS.
 
