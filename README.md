@@ -32,12 +32,26 @@ $ npm install --save-dev discharge
 
 ### Authentication
 
-[Configuring AWS credentials][aws-credentials] can be a bit confusing. After getting your Access Key ID and Secret Access Key from AWS, you should store them in a file at `~/.aws/credentials`. It should look something like this:
+#### Credentials in file
+
+[Configuring AWS credentials][aws-credentials-file] can be a bit confusing. After getting your Access Key ID and Secret Access Key from AWS, you should store them in a file at `~/.aws/credentials`. It should look something like this:
+
 
 ```
 [default]
 aws_access_key_id=AKIAIOSFODNN7EXAMPLE
 aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+```
+
+Replace the example keys with your own.
+
+#### Credentials in environment
+
+Alternatively, if you prefer environment variables or you are running discharge in an automated environment like a continuous integration/deployment server you can omit the `aws_profile` configuration option explained later and set environment variables instead.
+
+```
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```
 
 Replace the example keys with your own.
@@ -163,19 +177,15 @@ Set this to `true` if you want to use a CDN and HTTPS/TLS. Setting up the CDN do
 
 For more information see the `cache` configuration or the `distribute` command.
 
-**aws_profile** `String`
+**aws_profile** `String` (optional)
 
-Your AWS credentials should be stored in `~/.aws/credentials`. It should look something like this:
-
-```
-[default]
-aws_access_key_id=AKIAIOSFODNN7EXAMPLE
-aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-```
+The AWS profile you’ve specified in a credentials file at `~/.aws/credentials`.
 
 If you only have one set of credentials then specify “default”.
 
 If you want to create a new AWS user with specific permissions/policies for deployment, you can add another profile in the credentials file and specify the custom profile you’ve added.
+
+If you prefer environment variables or you are running discharge in an automated environment like a continuous integration/deployment server you can omit this configuration option.
 
 **aws_region** `String`
 
@@ -238,7 +248,7 @@ Bug reports and pull requests are welcome on GitHub at [https://github.com/brand
 
 The package is available as open source under the terms of the [MIT License][MIT-license].
 
-[aws-credentials]: http://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html
+[aws-credentials-file]: http://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html
 
 [routing-rules-docs]: http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects
 [JavaScript-docs]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putBucketWebsite-property
