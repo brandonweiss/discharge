@@ -1,4 +1,4 @@
-# ![discharge](./assets/logo.svg?sanitize=true)
+# ![Discharge](./assets/logo.svg?sanitize=true)
 
 > A simple, easy way to deploy static websites to Amazon S3
 
@@ -47,7 +47,7 @@ Replace the example keys with your own.
 
 #### Credentials in environment
 
-Alternatively, if you prefer environment variables or you are running discharge in an automated environment like a continuous integration/deployment server you can omit the `aws_profile` configuration option explained later and set environment variables instead.
+Alternatively, if you prefer environment variables or you are running Discharge in an automated environment like a continuous integration/deployment server you can omit the `aws_profile` configuration option explained later and set environment variables instead.
 
 ```
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
@@ -185,7 +185,7 @@ If you only have one set of credentials then specify “default”.
 
 If you want to create a new AWS user with specific permissions/policies for deployment, you can add another profile in the credentials file and specify the custom profile you’ve added.
 
-If you prefer environment variables or you are running discharge in an automated environment like a continuous integration/deployment server you can omit this configuration option.
+If you prefer environment variables or you are running Discharge in an automated environment like a continuous integration/deployment server you can omit this configuration option.
 
 **aws_region** `String`
 
