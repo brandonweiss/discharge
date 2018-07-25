@@ -1,4 +1,9 @@
-# ![Discharge](./assets/logo.svg?sanitize=true)
+<h1 align="center">
+	<br>
+	<img src="./assets/logo.svg?sanitize=true" alt="Discharge">
+	<br>
+	<br>
+</h1>
 
 > A simple, easy way to deploy static websites to Amazon S3
 
