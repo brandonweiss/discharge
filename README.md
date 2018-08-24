@@ -24,13 +24,13 @@
 Install it globally:
 
 ```
-$ npm install --global discharge
+$ npm install --global @static/discharge
 ```
 
 Or add it to your application’s `package.json`:
 
 ```
-$ npm install --save-dev discharge
+$ npm install --save-dev @static/discharge
 ```
 
 ## Usage

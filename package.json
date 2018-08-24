@@ -1,5 +1,5 @@
 {
-  "name": "discharge",
+  "name": "@static/discharge",
   "version": "0.7.1",
   "description": "A simple, easy way to deploy static websites to Amazon S3",
   "author": {
@@ -36,5 +36,8 @@
     "meow": "^3.7.0",
     "mime": "^2.0.3",
     "update-notifier": "^2.3.0"
+  },
+  "publishConfig": {
+  	"access": "public"
   }
 }
