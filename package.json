@@ -27,7 +27,7 @@
     "aws-sdk": "^2.302.0",
     "execa": "^0.11.0",
     "glob": "^7.1.2",
-    "inquirer": "^3.3.0",
+    "inquirer": "^6.2.0",
     "listr": "^0.14.1",
     "lodash.differenceby": "^4.8.0",
     "lodash.intersectionby": "^4.7.0",
