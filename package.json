@@ -36,8 +36,5 @@
     "meow": "^3.7.0",
     "mime": "^2.0.3",
     "update-notifier": "^2.3.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
