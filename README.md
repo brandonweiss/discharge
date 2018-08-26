@@ -9,6 +9,7 @@
 
 [![](https://badgen.net/travis/brandonweiss/discharge?icon=travis)](https://www.travis-ci.com/brandonweiss/discharge)
 [![](https://badgen.net/npm/v/@static/discharge?icon=npm)](https://www.npmjs.com/package/@static/discharge)
+![](https://badgen.net/npm/node/@static/discharge)
 ![](https://badgen.net/badge/documentation/lit/purple)
 
 ![screenshot](assets/screenshot.gif)

@@ -8,7 +8,7 @@
   },
   "bin": "cli.js",
   "engines": {
-    "node": ">= 7.10.1"
+    "node": ">= 8.0.0"
   },
   "license": "MIT",
   "repository": "https://github.com/brandonweiss/discharge",
