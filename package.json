@@ -10,6 +10,13 @@
   "engines": {
     "node": ">= 8.0.0"
   },
+  "keywords": [
+    "aws",
+    "aws-s3",
+    "static",
+    "static-site",
+    "s3"
+  ],
   "license": "MIT",
   "repository": "https://github.com/brandonweiss/discharge",
   "scripts": {
