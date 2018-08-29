@@ -1,6 +1,6 @@
 {
   "name": "@static/discharge",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple, easy way to deploy static websites to Amazon S3",
   "author": {
     "name": "Brandon Weiss",
