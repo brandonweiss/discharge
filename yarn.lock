@@ -341,9 +341,9 @@ ava@^0.25.0:
     unique-temp-dir "^1.0.0"
     update-notifier "^2.3.0"
 
-aws-sdk@^2.312.0:
-  version "2.312.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.312.0.tgz#484be59470af1c970a62d728a10dcc78a120d922"
+aws-sdk@^2.313.0:
+  version "2.313.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.313.0.tgz#3b125aaa5fa8cf5befefe6fcad96615d32d90df4"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
