@@ -33,7 +33,7 @@
     "np": "^3.0.4"
   },
   "dependencies": {
-    "aws-sdk": "^2.325.0",
+    "aws-sdk": "^2.326.0",
     "execa": "^1.0.0",
     "glob": "^7.1.3",
     "inquirer": "^6.2.0",
