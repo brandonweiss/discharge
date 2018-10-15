@@ -12,6 +12,7 @@
 ![](https://badgen.net/npm/node/@static/discharge)
 [![](https://badgen.net/david/dep/brandonweiss/discharge)](https://david-dm.org/brandonweiss/discharge)
 ![](https://badgen.net/badge/documentation/lit/purple)
+[![](https://badgen.net/badge//AWESOME?icon=awesome&color=494368)](https://github.com/sindresorhus/awesome-nodejs#command-line-apps)
 
 ![screenshot](assets/screenshot.gif)
 
