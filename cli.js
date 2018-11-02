@@ -18,9 +18,9 @@ const cli = meow(`
 `, {
   flags: {
     configPath: {
-      type: 'string',
-      alias: 'c',
-      default: '.discharge.json',
+      type: "string",
+      alias: "c",
+      default: ".discharge.json",
     }
   }
 })
