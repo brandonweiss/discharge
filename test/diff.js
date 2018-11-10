@@ -9,7 +9,7 @@ test("a file is in the source but not the target", (t) => {
 
   let changes = diff({ source, target, locationProperty: "path", contentsHashProperty: "md5" })
 
-	t.deepEqual(changes, {
+  t.deepEqual(changes, {
     add: [a],
     remove: [],
     update: [],
@@ -25,7 +25,7 @@ test("a file is in the target but not the source", (t) => {
 
   let changes = diff({ source, target, locationProperty: "path", contentsHashProperty: "md5" })
 
-	t.deepEqual(changes, {
+  t.deepEqual(changes, {
     add: [],
     remove: [a],
     update: [],
@@ -42,7 +42,7 @@ test("a file is in both the target and the source but the hashes are different",
 
   let changes = diff({ source, target, locationProperty: "path", contentsHashProperty: "md5" })
 
-	t.deepEqual(changes, {
+  t.deepEqual(changes, {
     add: [],
     remove: [],
     update: [aSource],
@@ -59,7 +59,7 @@ test("a file is in both the target and the source and the hashes are the same", 
 
   let changes = diff({ source, target, locationProperty: "path", contentsHashProperty: "md5" })
 
-	t.deepEqual(changes, {
+  t.deepEqual(changes, {
     add: [],
     remove: [],
     update: [],
@@ -80,7 +80,7 @@ test("a combination of files in different states", (t) => {
 
   let changes = diff({ source, target, locationProperty: "path", contentsHashProperty: "md5" })
 
-	t.deepEqual(changes, {
+  t.deepEqual(changes, {
     add: [a],
     remove: [b],
     update: [cSource],
