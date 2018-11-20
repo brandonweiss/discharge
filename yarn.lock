@@ -303,10 +303,10 @@ ava@^0.25.0:
     unique-temp-dir "^1.0.0"
     update-notifier "^2.3.0"
 
-aws-sdk@^2.359.0:
-  version "2.359.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.359.0.tgz#6e2d206cbbbd7c72fbe082972e6b558cdaa30a37"
-  integrity sha512-Rf5Bqps00fZISnPePVRW4sEqasBOGhbGyEDeF9bv3FEiYv5Rj9Tz3vKZGkpNl8eONdVPI5xu2y3W3iE7oZvfwA==
+aws-sdk@^2.360.0:
+  version "2.360.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.360.0.tgz#f640acbc7de07aa7a381a31b110fc3502fe90288"
+  integrity sha512-bzr2j6s1LNlkWDTgnFszr2r7eJ2/DfWx4GJbGV17LKnxC9ZHkHKtX50sEa1g4Yzb1RveSXlC3Hfyus92gPQ4BQ==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
