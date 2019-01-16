@@ -32,7 +32,7 @@
     "pretty-quick": "^1.8.1"
   },
   "dependencies": {
-    "aws-sdk": "^2.388.0",
+    "aws-sdk": "^2.389.0",
     "execa": "^1.0.0",
     "glob": "^7.1.3",
     "inquirer": "^6.2.1",
