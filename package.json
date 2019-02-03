@@ -28,7 +28,7 @@
     "ava": "^1.2.0",
     "husky": "^1.3.1",
     "np": "^4.0.2",
-    "prettier": "^1.16.3",
+    "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0"
   },
   "dependencies": {
