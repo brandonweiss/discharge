@@ -38,6 +38,7 @@
     "inquirer": "^6.2.2",
     "listr": "^0.14.3",
     "lodash.differenceby": "^4.8.0",
+    "lodash.flatmap": "^4.5.0",
     "lodash.intersectionby": "^4.7.0",
     "lodash.intersectionwith": "^4.4.0",
     "log-symbols": "^2.2.0",

@@ -21,7 +21,7 @@
 * Very little understanding of AWS required
 * Interactive UI for configuring deployment
 * Step-by-step list of what’s happening
-* Support for no trailing slashes in URLs
+* Support for clean URLs (no `.html` extensions)
 * Support for subdomains
 * Use an AWS Profile (named credentials) to authenticate with AWS
 * CDN (CloudFront) and HTTPS/TLS support
@@ -79,7 +79,6 @@ Configuration is done via a `.discharge.json` file located at the root of your a
   "upload_directory": "build",
   "index_key": "index.html",
   "error_key": "404.html",
-  "trailing_slashes": false,
   "cache": 3600,
   "aws_profile": "website-deployment",
   "aws_region": "us-west-1",
@@ -108,25 +107,11 @@ The name of the directory that the `build_command` generated with the static fil
 
 **index_key** `String`
 
-The key of the document to respond with at the root of the website and for URLs that look like folders. `index.html` is almost certainly what you want to use. For example, if `https://example.com` is requested, `https://example.com/index.html` will be returned. And if `https://example.com/some-page/` is requested, `https://example.com/some-page/index.html` will be returned.
-
-If you do not like trailing slashes in your URLs the `trailing_slashes` configuration can remove them.
+The key of the document to respond with at the root of the website. `index.html` is almost certainly what you want to use. For example, if `https://example.com` is requested, `https://example.com/index.html` will be returned.
 
 **error_key** `String`
 
 The key of the document to respond with if the website endpoint responds with a 404 Not Found. For example, `404.html` is pretty common.
-
-Don’t worry about accounting for the `trailing_slashes` configuration. If you disable trailing slashes, the `error_key` will be modified appropriately.
-
-**trailing_slashes** `Boolean`
-
-By default, most static site generators build websites with file extensions in the URL. So a page will look something like `https://example.com/some-page.html`. For a variety of reasons (aesthetics, backwards-compatibility with existing URLs, etc.), you might need something like `https://example.com/some-page` instead.
-
-Amazon S3 has support for “Index Documents”, or what’s commonly called “Directory Indexes”. It’s a feature where if a request is made to what appears to be a folder, like `https://example.com/folder/`, it will look for a file _inside_ that “folder” based on the `index_key`. So if the `index_key` is `index.html`, a request to `https://example.com/folder/` will serve the document at `https://example.com/folder/index.html`. If your static site generator supports Directory Indexes, then you can configure it so that when it builds your site a file named `some-page.html` will be generated as `some-page/index.html`.
-
-S3’s Directory Indexes support will also work without trailing slashes, but not how you might expect. If a request is made to `https://example.com/some-page`, it will first redirect to `https://example.com/some-page/` and then serve the file at `https://example.com/some-page/index.html`. If you don’t like the `html` extensions on your URLs, you probably aren’t going to be happy about the trailing slashes either. 😉
-
-If you set `trailing_slashes` to `false`, when you deploy, your files that look like Directory Indexes will be on-the-fly re-mapped to have no extension. So a file `some-page/index.html` will be uploaded as just `some-page`, which will allow it to be served from `https://example.com/some-page`, without the trailing slash!
 
 **cache** `Number` (optional when `cache_control` is set)
 
@@ -212,6 +197,12 @@ If you run `discharge init` this will be set to `false` automatically. Then when
 After you’ve finished configuring you can run `discharge deploy` to deploy. Deploying is a series of steps that are idempotent—that is, they are safe to run over and over again, and if you haven’t changed anything, then the outcome should always be the same.
 
 If you change your website configuration (`cache`, `redirects`, etc.) it will be updated. If you change your website content, a diff will be done to figure out what needs to change. New files will be added, changed files will be updated, and deleted files will be removed. The synchronization is one way—that is, if you remove a file from S3 it will just be re-uploaded the next time you deploy.
+
+#### Clean URLs
+
+Clean URLs are when the `.html` extensions are dropped from URLs for aesthetic or functional reasons. The `.html` extensions are now commonly considered superfluous. If you have a file named `/projects.html` it’s now understood and generally preferred that the URL `domain.com/projects` would serve that file.
+
+When you deploy, two copies of each HTML file will be uploaded: one with the `.html` extension and one without. So a file `some-page.html` will be uploaded as `some-page.html` and as `some-page`, which will allow it to be served from `https://example.com/some-page.html`, with the extension, or from `https://example.com/some-page`, without the extension. You are free to use whichever URL style you prefer!
 
 ### Distribute
 
