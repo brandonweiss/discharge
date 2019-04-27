@@ -27,7 +27,7 @@
   "devDependencies": {
     "ava": "^1.4.1",
     "husky": "^2.1.0",
-    "np": "^5.0.0",
+    "np": "^5.0.1",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0"
   },
