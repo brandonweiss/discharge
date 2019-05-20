@@ -29,7 +29,7 @@
     "husky": "^2.3.0",
     "np": "^5.0.2",
     "prettier": "^1.17.1",
-    "pretty-quick": "^1.10.0"
+    "pretty-quick": "^1.11.0"
   },
   "dependencies": {
     "aws-sdk": "^2.446.0",
