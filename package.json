@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.474.0",
-    "execa": "^1.0.0",
+    "execa": "^2.0.0",
     "glob": "^7.1.4",
     "inquirer": "^6.4.1",
     "listr": "^0.14.3",
