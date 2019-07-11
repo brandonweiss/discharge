@@ -34,7 +34,7 @@
   "dependencies": {
     "aws-sdk": "^2.474.0",
     "glob": "^7.1.4",
-    "inquirer": "^6.4.1",
+    "inquirer": "^6.5.0",
     "listr": "^0.14.3",
     "lodash.differenceby": "^4.8.0",
     "lodash.flatmap": "^4.5.0",
