@@ -622,10 +622,10 @@ ava@^2.2.0:
     update-notifier "^3.0.1"
     write-file-atomic "^3.0.0"
 
-aws-sdk@^2.474.0:
-  version "2.474.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.474.0.tgz#580c7c28e00828b40e2f97b031820bcef68d2367"
-  integrity sha512-nyTZNeVRJix1AStgvH5zcacemgXOhrMrhsXHMmvPkvaXBp3Boj+A79/G8KMd3f/zfjgjRPi9VG0I/BNzfsP3HQ==
+aws-sdk@^2.499.0:
+  version "2.499.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.499.0.tgz#280955126c4bf245c154eeb00cac6ba987c91c68"
+  integrity sha512-Uz9147/QJ2e14LwvnLngkCjjiII3cGKSYggd7ywyYWJciPZPNMPJFSbWdCSjSqiFoRVsHdHQ8bBPhr+Sn22zSw==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
