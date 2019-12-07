@@ -41,7 +41,7 @@
     "lodash.intersectionby": "^4.7.0",
     "lodash.intersectionwith": "^4.4.0",
     "log-symbols": "^3.0.0",
-    "meow": "^5.0.0",
+    "meow": "^6.0.0",
     "mime": "^2.4.4",
     "update-notifier": "^3.0.1"
   },
