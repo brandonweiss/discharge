@@ -43,7 +43,7 @@
     "log-symbols": "^3.0.0",
     "meow": "^6.0.0",
     "mime": "^2.4.4",
-    "update-notifier": "^3.0.1"
+    "update-notifier": "^4.0.0"
   },
   "husky": {
     "hooks": {
