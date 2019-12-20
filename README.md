@@ -84,7 +84,8 @@ Configuration is done via a `.discharge.json` file located at the root of your a
   "aws_profile": "website-deployment",
   "aws_region": "us-west-1",
   "cdn": true,
-  "dns_configured": false
+  "dns_configured": false,
+  "should_keep_files_in_s3": true,
 }
 ```
 
@@ -206,6 +207,10 @@ The [Amazon S3 region][s3-region] you want to create your website (bucket) in.
 **dns_configured** `Boolean`
 
 If you run `discharge init` this will be set to `false` automatically. Then when you run `discharge deploy` it will show the record you need to add to your DNS configuration. The deploy command will then automatically set this value to `true`, assuming you have properly created the DNS record.
+
+**should_keep_files_in_s3** `Boolean`
+
+Set to false by default, flag comtrols if discharge synchronizes the removal of files in the upload dir with s3. 
 
 ### Deploy
 
