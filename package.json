@@ -25,6 +25,7 @@
     "test": "ava"
   },
   "devDependencies": {
+    "@ava/babel": "^1.0.0",
     "ava": "^3.0.0",
     "husky": "^4.2.1",
     "np": "^5.2.1",
