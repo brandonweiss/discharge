@@ -33,7 +33,7 @@
     "pretty-quick": "^2.0.1"
   },
   "dependencies": {
-    "aws-sdk": "^2.474.0",
+    "aws-sdk": "^2.638.0",
     "glob": "^7.1.6",
     "inquirer": "^7.1.0",
     "listr": "^0.14.3",
