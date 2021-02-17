@@ -43,7 +43,7 @@
     "lodash.intersectionwith": "^4.4.0",
     "log-symbols": "^4.0.0",
     "meow": "^7.1.0",
-    "mime": "^2.4.6",
+    "mime": "^2.5.2",
     "update-notifier": "^4.1.1"
   },
   "husky": {
