@@ -27,7 +27,7 @@
   "devDependencies": {
     "@ava/babel": "^1.0.1",
     "ava": "^3.12.0",
-    "husky": "^4.2.5",
+    "husky": "^6.0.0",
     "np": "^6.4.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^3.0.0"
